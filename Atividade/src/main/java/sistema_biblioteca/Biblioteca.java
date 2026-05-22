@@ -8,36 +8,36 @@ public class Biblioteca {
 
          Aluno aluno = new Aluno();
 
-         aluno.nome = "Gabriel";
-         aluno.matricula = 1234;
-         aluno.possuiMulta = false;
-         aluno.livrosEmprestados = 2;
+         aluno.setNome("Gabriel");
+         aluno.setMatricula(1234);
+         aluno.setPossuiMulta(false);
+         aluno.setLivrosEmprestados(2);
 
          Livro livro = new Livro();
 
-         livro.titulo = "Pequeno principe";
-         livro.codigo = 100;
-         livro.disponivel = true;
-         livro.estoque = 1;
+         livro.setTitulo("Pequeno principe");
+         livro.setCodigo(100);
+         livro.setDisponivel(true);
+         livro.setEstoque(1);
 
          System.out.print("Digite sua matrícula: ");
          int matriculaDigitada = sc.nextInt();
 
-         if (matriculaDigitada != aluno.matricula) {
+         if (matriculaDigitada != aluno.getMatricula()) {
 
              System.out.println("Aluno não encontrado.");
 
          } else {
 
 
-             if (aluno.possuiMulta) {
+             if (aluno.isPossuiMulta()) {
 
                  System.out.println("Empréstimo bloqueado por multa.");
 
              }
 
 
-             else if (aluno.livrosEmprestados >= 3) {
+             else if (aluno.getLivrosEmprestados() >= 3) {
 
                  System.out.println("Limite de empréstimos atingido.");
 
@@ -49,22 +49,26 @@ public class Biblioteca {
                  int codigoDigitado = sc.nextInt();
 
 
-                 if (codigoDigitado != livro.codigo || !livro.disponivel) {
+                 if (codigoDigitado != livro.getCodigo() || !livro.isDisponivel()) {
 
                      System.out.println("Livro indisponível.");
 
                  } else {
 
 
-                     aluno.livrosEmprestados++;
+                     aluno.setLivrosEmprestados(
+                             aluno.getLivrosEmprestados() + 1
+                     );
 
 
-                     livro.estoque--;
+                     livro.setEstoque(
+                             livro.getEstoque() - 1
+                     );
 
 
-                     if (livro.estoque == 0) {
+                     if (livro.getEstoque() == 0) {
 
-                         livro.disponivel = false;
+                         livro.setDisponivel(false);
                      }
 
                      System.out.println("Empréstimo realizado com sucesso.");
