@@ -15,20 +15,20 @@ public class Main {
                 System.out.println("=== SISTEMA DE COMPRA ONLINE ===");
 
                 System.out.print("Digite o valor da compra: R$ ");
-                sistema.valorCompra = sc.nextDouble();
+                sistema.setValorCompra(sc.nextDouble());
                 sc.nextLine();
 
                 System.out.print("Nome: ");
-                usuario.nome = sc.nextLine();
+                usuario.setNome(sc.nextLine());
 
                 System.out.print("CPF: ");
-                usuario.cpf = sc.nextLine();
+                usuario.setCpf(sc.nextLine());
 
                 System.out.print("Endereco: ");
-                usuario.endereco = sc.nextLine();
+                usuario.setEndereco(sc.nextLine());
 
                 System.out.print("Forma de pagamento: ");
-                usuario.formaPagamento = sc.nextLine();
+                usuario.setFormaPagamento(sc.nextLine());
 
                 usuario.exibirDados();
 

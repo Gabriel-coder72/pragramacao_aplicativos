@@ -2,42 +2,75 @@ package Sistema_compra_online;
 
 public class Sistema {
 
-        public double valorCompra;
-        public double frete;
-        public double valorFinal;
+    private double valorCompra;
+    private double frete;
+    private double valorFinal;
 
-        public void calcularFrete() {
 
-            if (valorCompra > 500.0) {
-                frete = 0.0;
-                System.out.println("Frete gratis.");
-            } else {
-                frete = 25.0;
-                System.out.println("Frete de R$ 25.00 adicionado.");
-            }
-        }
+    public double getValorCompra() {
+        return valorCompra;
+    }
 
-        public void calcularValorFinal() {
+    public void setValorCompra(double valorCompra) {
+        this.valorCompra = valorCompra;
+    }
 
-            valorFinal = valorCompra + frete;
 
-            System.out.printf("Valor final: R$ %.2f%n", valorFinal);
-        }
+    public double getFrete() {
+        return frete;
+    }
 
-        public void finalizarCompra(String aprovacao) {
+    public void setFrete(double frete) {
+        this.frete = frete;
+    }
 
-            if (aprovacao.equalsIgnoreCase("nao")) {
 
-                System.out.println("Pagamento nao autorizado.");
+    public double getValorFinal() {
+        return valorFinal;
+    }
 
-            } else {
+    public void setValorFinal(double valorFinal) {
+        this.valorFinal = valorFinal;
+    }
 
-                int numeroPedido = 1001;
 
-                System.out.println("Numero do pedido: " + numeroPedido);
-                System.out.println("Compra registrada.");
-                System.out.println("Confirmacao enviada.");
-                System.out.println("Compra realizada com sucesso.");
-            }
+    public void calcularFrete() {
+
+        if (getValorCompra() > 500.0) {
+
+            setFrete(0.0);
+            System.out.println("Frete gratis.");
+
+        } else {
+
+            setFrete(25.0);
+            System.out.println("Frete de R$ 25.00 adicionado.");
         }
     }
+
+
+    public void calcularValorFinal() {
+
+        setValorFinal(getValorCompra() + getFrete());
+
+        System.out.printf("Valor final: R$ %.2f%n", getValorFinal());
+    }
+
+
+    public void finalizarCompra(String aprovacao) {
+
+        if (aprovacao.equalsIgnoreCase("nao")) {
+
+            System.out.println("Pagamento nao autorizado.");
+
+        } else {
+
+            int numeroPedido = 1001;
+
+            System.out.println("Numero do pedido: " + numeroPedido);
+            System.out.println("Compra registrada.");
+            System.out.println("Confirmacao enviada.");
+            System.out.println("Compra realizada com sucesso.");
+        }
+    }
+}
